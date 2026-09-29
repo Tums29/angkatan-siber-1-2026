@@ -1,0 +1,904 @@
+
+/* ==========================================================================
+   CYBER ONE 26 - STYLESHEET
+   Aesthetic: Modern Dark Military Glassmorphism
+   Layout: Compact Header + Gold Motto + Glass Bubble
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. ROOT VARIABLES
+   ========================================================================== */
+
+:root {
+  --primary-color: #1a2e3a;
+  --primary-light: #283358;
+  --primary-dark: #132a2d;
+
+  --gold-accent: #c5a059;
+  --gold-hover: #e5be79;
+
+  --bg-dark: #090d0d;
+  --bg-card: rgba(35, 56, 63, 0.65);
+
+  --border-color: rgba(197, 160, 89, 0.2);
+  --border-focus: rgba(197, 160, 89, 0.6);
+
+  --text-primary: #f0f2ef;
+  --text-secondary: #a0a89d;
+  --text-dark: #0e1f1d;
+
+  /* Status Colors */
+  --color-success: #2ecc71;
+  --color-warning: #f1c40f;
+  --color-danger: #e74c3c;
+  --color-info: #3498db;
+
+  /* Typography */
+  --font-main: 'Montserrat', sans-serif;
+
+  /* Effects */
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --shadow-premium: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --blur-value: 12px;
+}
+
+
+/* ==========================================================================
+   2. BASE RESET & STYLES
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: #090d0d;
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+
+  background-image:
+    linear-gradient(
+      rgba(9, 13, 13, 0.75),
+      rgba(9, 13, 13, 0.70)
+    ),
+    url("./images/bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+/* ==========================================================================
+   3. BACKGROUND GRID EFFECT
+   ========================================================================== */
+
+.bg-grid-effect {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  min-height: 100%;
+
+  background-image:
+    linear-gradient(
+      rgba(197, 160, 89, 0.02) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(197, 160, 89, 0.02) 1px,
+      transparent 1px
+    );
+
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* ==========================================================================
+   4. CONTENT WRAPPER
+   ========================================================================== */
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+
+/* ==========================================================================
+   5. HEADER STYLE - COMPACT
+   ========================================================================== */
+
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  width: 100%;
+  padding: 5px 0;
+
+  background: rgba(14, 31, 31, 0.9);
+  backdrop-filter: blur(var(--blur-value));
+  -webkit-backdrop-filter: blur(var(--blur-value));
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  text-align: center;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+}
+
+/* JUDUL HEADER */
+
+.main-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 24px;
+  width: 100%;
+
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: 5px;
+  line-height: 1;
+
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* LOGO CYBER KIRI DAN KANAN */
+
+.cyber-left,
+.cyber-right {
+  display: block;
+
+  width: 75px;
+  height: 75px;
+  max-width: 75px;
+  max-height: 75px;
+
+  object-fit: contain;
+  object-position: center;
+
+  flex: 0 0 auto;
+}
+
+/* TANGGAL HEADER */
+
+.sub-title {
+  display: block;
+  position: relative;
+  z-index: 2;
+
+  margin-top: -17px;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1.4;
+
+  color: var(--gold-accent);
+  text-align: center;
+}
+
+
+/* ==========================================================================
+   6. HERO SECTION
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  text-align: center;
+
+  margin-bottom: 40px;
+}
+
+/* SEMBOYAN GOLD TANPA BUBBLE */
+
+.hero-badge {
+  display: block;
+
+  width: fit-content;
+  max-width: 100%;
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+
+  color: var(--gold-accent);
+
+  padding: 0;
+  margin: 0 auto 20px;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+
+  text-align: center;
+}
+
+/* BUBBLE JUDUL DAN DESKRIPSI */
+
+.hero-content-bubble {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+  padding: 25px 35px;
+
+  background: rgba(35, 56, 63, 0.45);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(var(--blur-value));
+  -webkit-backdrop-filter: blur(var(--blur-value));
+
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+/* JUDUL DI DALAM BUBBLE */
+
+.hero-content-bubble .hero-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.3;
+
+  margin-bottom: 15px;
+
+  color: var(--text-primary);
+}
+
+/* DESKRIPSI DI DALAM BUBBLE */
+
+.hero-content-bubble .hero-lead {
+  width: 100%;
+  max-width: 100%;
+
+  margin: 0 auto;
+
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.8;
+
+  text-align: center;
+}
+
+
+/* ==========================================================================
+   7. PERSONEL SECTION
+   Layout:
+   Personel 1      : Tengah atas
+   Personel 2      : Tengah di bawah Personel 1
+   Personel 3-18   : Empat kolom
+   Personel 19     : Tengah paling bawah
+   ========================================================================== */
+
+.personel-section {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  padding: 25px 0 60px;
+}
+
+/* GRID UTAMA */
+
+.personel-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  grid-template-areas:
+    ". p1 p1 ."
+    ". p2 p2 ."
+    "p3 p4 p5 p6"
+    "p7 p8 p9 p10"
+    "p11 p12 p13 p14"
+    "p15 p16 p17 p18"
+    ". p19 p19 .";
+
+  grid-auto-flow: row;
+
+  column-gap: 25px;
+  row-gap: 35px;
+
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+  padding: 15px 0 25px;
+
+  justify-items: center;
+  align-items: start;
+}
+
+/* POSISI PERSONEL */
+
+.personel-1  { grid-area: p1; }
+.personel-2  { grid-area: p2; }
+.personel-3  { grid-area: p3; }
+.personel-4  { grid-area: p4; }
+.personel-5  { grid-area: p5; }
+.personel-6  { grid-area: p6; }
+.personel-7  { grid-area: p7; }
+.personel-8  { grid-area: p8; }
+.personel-9  { grid-area: p9; }
+.personel-10 { grid-area: p10; }
+.personel-11 { grid-area: p11; }
+.personel-12 { grid-area: p12; }
+.personel-13 { grid-area: p13; }
+.personel-14 { grid-area: p14; }
+.personel-15 { grid-area: p15; }
+.personel-16 { grid-area: p16; }
+.personel-17 { grid-area: p17; }
+.personel-18 { grid-area: p18; }
+.personel-19 { grid-area: p19; }
+
+/* KARTU PERSONEL */
+
+.personel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 100%;
+  min-width: 0;
+  max-width: 290px;
+
+  transition: var(--transition-smooth);
+}
+
+/* FOTO PERSONEL */
+
+.personel-card img {
+  display: block;
+
+  width: 100%;
+  height: 380px;
+  max-width: 290px;
+
+  object-fit: cover;
+  object-position: center;
+
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+
+  background: var(--bg-card);
+  box-shadow: var(--shadow-premium);
+
+  transition: var(--transition-smooth);
+}
+
+/* HOVER FOTO */
+
+.personel-card:hover img {
+  border-color: var(--gold-accent);
+
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+
+  transform: translateY(-5px);
+}
+
+/* NAMA PERSONEL */
+
+.personel-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 80px;
+  min-height: 80px;
+
+  margin-top: 9px;
+  padding: 8px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+
+  background: rgba(35, 56, 63, 0.85);
+  color: var(--text-primary);
+
+  font-family: var(--font-main);
+  font-size: 18px;
+  font-weight: 700;
+
+  text-align: center;
+  line-height: 1.4;
+
+  overflow-wrap: anywhere;
+  overflow: hidden;
+
+  transition: var(--transition-smooth);
+}
+
+/* HOVER NAMA */
+
+.personel-card:hover .personel-name {
+  border-color: var(--gold-accent);
+  color: var(--gold-hover);
+}
+
+
+/* ==========================================================================
+   8. RESPONSIVE DESIGN - LAPTOP KECIL
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .content-wrapper {
+    padding: 35px 20px;
+  }
+
+  .personel-grid {
+    max-width: 850px;
+    column-gap: 18px;
+    row-gap: 30px;
+  }
+
+  .personel-card img {
+    height: 315px;
+  }
+
+  .personel-name {
+    height: 70px;
+    min-height: 70px;
+    font-size: 15px;
+  }
+}
+
+
+/* ==========================================================================
+   9. RESPONSIVE DESIGN - TABLET
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 30px 16px;
+  }
+
+  /* HEADER */
+
+  .main-header {
+    padding: 5px 0;
+  }
+
+  .main-title {
+    font-size: 2rem;
+    gap: 16px;
+    letter-spacing: 3px;
+  }
+
+  .cyber-left,
+  .cyber-right {
+    width: 60px;
+    height: 60px;
+    max-width: 60px;
+    max-height: 60px;
+  }
+
+  .sub-title {
+    margin-top: -12px;
+  }
+
+  /* HERO */
+
+  .hero-badge {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+
+  .hero-content-bubble {
+    padding: 20px;
+  }
+
+  .hero-content-bubble .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-content-bubble .hero-lead {
+    font-size: 0.9rem;
+  }
+
+  /* PERSONEL */
+
+  .personel-grid {
+    column-gap: 15px;
+    row-gap: 24px;
+  }
+
+  .personel-card img {
+    height: 260px;
+  }
+
+  .personel-name {
+    height: 58px;
+    min-height: 58px;
+    padding: 7px;
+    font-size: 13px;
+  }
+}
+
+
+/* ==========================================================================
+   10. RESPONSIVE DESIGN - SMARTPHONE
+   ========================================================================== */
+
+@media (max-width: 480px) {
+
+  /* CONTENT */
+
+  .content-wrapper {
+    padding: 25px 12px;
+  }
+
+  /* HEADER */
+
+  .main-header {
+    padding: 5px 0;
+  }
+
+  .header-container {
+    padding: 0 8px;
+  }
+
+  .main-title {
+    gap: 8px;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
+
+  .cyber-left,
+  .cyber-right {
+    width: 45px;
+    height: 45px;
+    max-width: 45px;
+    max-height: 45px;
+  }
+
+  .sub-title {
+    font-size: 0.65rem;
+    margin-top: -8px;
+  }
+
+  /* HERO */
+
+  .hero-section {
+    margin-bottom: 30px;
+  }
+
+  .hero-badge {
+    font-size: 0.7rem;
+    letter-spacing: 0.8px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+  }
+
+  .hero-content-bubble {
+    padding: 15px 12px;
+    border-radius: 12px;
+  }
+
+  .hero-content-bubble .hero-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .hero-content-bubble .hero-lead {
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+
+  /* PERSONEL */
+
+  .personel-section {
+    padding: 15px 0 40px;
+  }
+
+  .personel-grid {
+    column-gap: 6px;
+    row-gap: 18px;
+    padding: 10px 0 20px;
+  }
+
+  .personel-card {
+    width: 100%;
+  }
+
+  .personel-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+  }
+
+  .personel-name {
+    width: 100%;
+    height: 60px;
+    min-height: 60px;
+    padding: 4px 2px;
+    font-size: 9px;
+    line-height: 1.3;
+  }
+}
+
+
+/* ==========================================================================
+   11. SMARTPHONE SANGAT KECIL
+   ========================================================================== */
+
+@media (max-width: 360px) {
+
+  .main-title {
+    gap: 5px;
+    font-size: 1.15rem;
+    letter-spacing: 1px;
+  }
+
+  .cyber-left,
+  .cyber-right {
+    width: 36px;
+    height: 36px;
+    max-width: 36px;
+    max-height: 36px;
+  }
+
+  .personel-grid {
+    column-gap: 4px;
+    row-gap: 16px;
+  }
+
+  .personel-name {
+    height: 64px;
+    min-height: 64px;
+    font-size: 8px;
+  }
+}
+
+
+/* ==========================================================================
+   12. FOOTER
+   ========================================================================== */
+
+.main-footer {
+  position: relative;
+  z-index: 1;
+
+  border-top: 1px solid var(--border-color);
+  background: rgba(9, 11, 13, 0.9);
+
+  padding: 30px 20px;
+
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+
+/* ==========================================================================
+   13. GALLERY SECTION
+   ========================================================================== */
+
+.gallery-section {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 60px auto 80px;
+  padding: 35px 20px;
+}
+
+/* HEADER GALLERY */
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.gallery-badge {
+  display: inline-block;
+
+  padding: 6px 18px;
+  margin-bottom: 12px;
+
+  border: 1px solid var(--gold-accent);
+  border-radius: 20px;
+
+  background: rgba(197, 160, 89, 0.1);
+  color: var(--gold-accent);
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.gallery-title {
+  color: var(--text-primary);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.gallery-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* GRID GALLERY */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+/* KARTU FOTO */
+
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+
+  background: var(--bg-card);
+  box-shadow: var(--shadow-premium);
+
+  transition: var(--transition-smooth);
+}
+
+/* FOTO */
+
+.gallery-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.4s ease;
+}
+
+/* EFEK HOVER */
+
+.gallery-card:hover {
+  border-color: var(--gold-accent);
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.25);
+  transform: translateY(-5px);
+}
+
+.gallery-card:hover img {
+  transform: scale(1.05);
+}
+
+/* FOTO TERAKHIR DI TENGAH DESKTOP */
+
+.gallery-card:last-child {
+  grid-column: 2;
+}
+
+
+/* ==========================================================================
+   14. GALLERY - RESPONSIVE DESIGN TABLET
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .gallery-section {
+    padding: 25px 16px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .gallery-title {
+    font-size: 1.6rem;
+  }
+
+  /* FOTO TERAKHIR DI TENGAH TABLET */
+
+  .gallery-card:last-child {
+    grid-column: 1 / -1;
+    width: calc((100% - 18px) / 2);
+    justify-self: center;
+  }
+}
+
+
+/* ==========================================================================
+   15. GALLERY - RESPONSIVE DESIGN SMARTPHONE
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  .gallery-section {
+    padding: 20px 10px;
+    margin: 35px auto 50px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .gallery-title {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+  }
+
+  .gallery-description {
+    font-size: 0.8rem;
+  }
+
+  /* FOTO TERAKHIR PADA SMARTPHONE */
+
+  .gallery-card:last-child {
+    grid-column: auto;
+    width: 100%;
+    justify-self: stretch;
+  }
+}
+
+
+/* ==========================================================================
+   END OF CYBER ONE 26 STYLESHEET
+   ========================================================================== */
